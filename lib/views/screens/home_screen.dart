@@ -23,10 +23,28 @@ class HomeScreen extends StatelessWidget
               const MovieNavigationBar(text: 'Vatrin Film', leadingIcon: 'assets/icons/Menu.svg', endIcon: 'assets/icons/Notif.svg',),
               SizedBox(height: 30),
               Row(mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text('Now Showing', style: titleStyle,),
-                ],
+                children: [Text('Now Showing', style: titleStyle,),],
               ),
+                  InkWell(
+                    onTap: () {},child: Column(
+                      children: [
+                        SizedBox(
+                          height: 190,
+                          width: 150,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(
+                             "",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(height: 5),
+                        Text("test")
+                      ],
+                    ),
+                  ),
               Container(
 
               )
