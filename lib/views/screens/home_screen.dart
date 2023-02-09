@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:vatrin_movie_app/views/widgets/movie_navigation_bar.dart';
+import 'package:vatrin_movie_app/views/widgets/now_showing_widget.dart';
 
 import '../../data/constant.dart';
+import '../../providers/movie_provider.dart';
 
 class HomeScreen extends StatelessWidget
 {
@@ -15,7 +18,8 @@ class HomeScreen extends StatelessWidget
     return Scaffold(
 
       body:
-        Container(
+      Consumer<MovieProvider>(builder: (context, provider, x) {
+        return Container(
           margin: EdgeInsets.fromLTRB(15, 40, 10, 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -25,7 +29,8 @@ class HomeScreen extends StatelessWidget
               Row(mainAxisAlignment: MainAxisAlignment.start,
                 children: [Text('Now Showing', style: titleStyle,),],
               ),
-                  InkWell(
+              SizedBox(height: 20),
+                 /* InkWell(
                     onTap: () {},child: Column(
                       children: [
                         SizedBox(
@@ -44,16 +49,26 @@ class HomeScreen extends StatelessWidget
                         Text("test")
                       ],
                     ),
-                  ),
-              Container(
+                  ),*/
 
-              )
+            provider.nowShowingMovies == null
+                    ? const Center(
+                        child: Text('No Movies Found'),
+                           )
+                    : Container(
+                      height: 270,
+                      child: ListView.builder(
+                      itemCount: provider.nowShowingMovies!.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return NowShowingWidget(movie:provider.nowShowingMovies![index]);
+                      }),
+                    ),
+
             ],
-
-
           ),
-        ),
-
+        );
+       })
     );
   }
 
