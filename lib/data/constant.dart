@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
 TextStyle titleStyle =TextStyle(fontFamily: 'Merriweather',fontWeight: FontWeight.w900,fontSize: 16);
+TextStyle subTitleStyle=TextStyle(fontFamily: 'Mulish',fontWeight: FontWeight.w700,fontSize: 14);
+TextStyle subSubTitleStyle=TextStyle(fontFamily: 'Mulish',fontWeight: FontWeight.w400,fontSize: 12, color: appGray);
 
 final String apiKey = '44003be4f7cea769f0a024d29a57dcc9';
 final String readAccessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0'
@@ -11,4 +13,4 @@ final String readAccessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0'
 
 List popularMovies = [];
 List nowShowingMovies=[];
-
+Color appGray= Color(0xff9C9C9C);
