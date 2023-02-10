@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/constant.dart';
 import '../../models/movie.dart';
+import '../screens/details_screen.dart';
 
 class NowShowingWidget extends StatelessWidget
 {
@@ -16,23 +17,10 @@ class NowShowingWidget extends StatelessWidget
           return InkWell(
             onTap: () {
               //Show details page
-              /*Navigator.push(
+              Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => Description(
-                        name: nowShowingMovie[index]['title'],
-                        bannerurl:
-                        'https://image.tmdb.org/t/p/w500' +
-                            nowShowingMovie[index]['backdrop_path'],
-                        posterurl:
-                        'https://image.tmdb.org/t/p/w500' +
-                            nowShowingMovie[index]['poster_path'],
-                        description: nowShowingMovie[index]['overview'],
-                        vote: nowShowingMovie[index]['vote_average']
-                            .toString(),
-                        launch_on: nowShowingMovie[index]
-                        ['release_date'],
-                      )));*/
+                      builder: (context) => DetailsScreen (movie: movie,)));
             },
             child: Container(
               width: 150,

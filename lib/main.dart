@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vatrin_movie_app/providers/movie_provider.dart';
+import 'package:vatrin_movie_app/views/screens/details_screen.dart';
 import 'package:vatrin_movie_app/views/screens/home_screen.dart';
 
 void main() {

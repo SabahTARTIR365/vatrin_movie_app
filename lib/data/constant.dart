@@ -4,7 +4,8 @@ TextStyle titleStyle =TextStyle(fontFamily: 'Merriweather',fontWeight: FontWeigh
 TextStyle subTitleStyle=TextStyle(fontFamily: 'Mulish',fontWeight: FontWeight.w700,fontSize: 14);
 TextStyle subSubTitleStyle=TextStyle(fontFamily: 'Mulish',fontWeight: FontWeight.w400,fontSize: 12, color: appGray);
 TextStyle genreTitleStyle=TextStyle(fontFamily: 'Mulish',fontSize: 8, fontWeight: FontWeight.bold, color: Color(0xff88A4E8));
-TextStyle timeTitleStyle=TextStyle(fontFamily: 'Mulish',fontWeight: FontWeight.w400,fontSize: 12);
+TextStyle timeTitleStyle=TextStyle(fontFamily: 'Mulish',fontWeight: FontWeight.w600,fontSize: 12);
+TextStyle detailsTitleStyle= TextStyle(fontFamily: 'Mulish',fontWeight: FontWeight.w900,fontSize: 20);
 final String apiKey = '44003be4f7cea769f0a024d29a57dcc9';
 final String readAccessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0'
     'NDAwM2JlNGY3Y2VhNzY5ZjBhMDI0ZDI5YTU3ZGNjOSIsInN1YiI6IjYzZTM2'
