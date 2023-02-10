@@ -1,14 +1,17 @@
 class Movie {
 
    String name;
+   int    id;
    String description;
    String bannerurl;
    String posterurl;
    String vote;
    String launch_on;
+   List  genre_ids=[];
+   int ?lenght;
 
   Movie({required this.name, required this.description,
-    required this.bannerurl, required this.posterurl, required this.vote, required this.launch_on});
+    required this.bannerurl, required this.posterurl, required this.vote, required this.launch_on, required this.genre_ids,required this.id,this.lenght,});
 
 
 
@@ -20,6 +23,8 @@ class Movie {
       'overview':  description,
       'vote_average':  vote,
       'release_date':  launch_on,
+      'genre_ids':genre_ids,
+      'id':id,
 
     };
   }
@@ -35,6 +40,10 @@ class Movie {
       posterurl:'https://image.tmdb.org/t/p/w500' + map['poster_path'] ?? '',
       vote: map['vote_average'].toString() ?? '',
       launch_on: map['release_date'] ?? '',
+      genre_ids: map['genre_ids'],
+      id: map['id'],
+
+
 
     );
   }
