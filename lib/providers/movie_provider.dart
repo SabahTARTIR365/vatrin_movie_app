@@ -10,8 +10,9 @@ import '../models/movie.dart';
 class MovieProvider extends ChangeNotifier
 {
   TMDB ?tmdbWithCustomLogs;
-  List ?popularMovies ;
+  List <Movie>?popularMovies ;
   List<Movie>?nowShowingMovies;
+ String? time;
 
   MovieProvider()
   {
@@ -45,10 +46,40 @@ class MovieProvider extends ChangeNotifier
     notifyListeners();
   }
   getPopularMovies() async {
-    Map popularMoviesResult = await tmdbWithCustomLogs!.v3.movies.getPopular();
-    popularMovies=popularMoviesResult['results'];
+    Map popularMoviesResult = await tmdbWithCustomLogs!.v3.movies.getPouplar();
+   List movies=popularMoviesResult['results'];
+    popularMovies=movies.map( (entry) => Movie.fromMap(entry)).toList();
+    notifyListeners();
+    for (var movie in popularMovies!) {
+      Map movieDetailsResult =  await tmdbWithCustomLogs!.v3.movies.getDetails(movie.id);
+     movie.lenght =movieDetailsResult['runtime'];
+    }
+
     notifyListeners();
   }
+  getGenres() async {
+    Map genresResult = await tmdbWithCustomLogs!.v3.genres.getMovieList();
+    List genres=genresResult['results'];
+    //popularMovies=
+    notifyListeners();
+  }
+   getMovieLength(int movieId) async {
+    Map movieDetailsResult =  await tmdbWithCustomLogs!.v3.movies.getDetails(movieId);
+    time =movieDetailsResult['runtime'].toString();
 
+  }
 
+  getTime(int movieId)
+  {
+    getMovieLength(movieId);
+    return time;
+  }
+
+  String formatTime(int? time)
+  {
+    num hour= (time!/60) ;
+    int minute= time!%60;
+    String totalTime= hour.toStringAsFixed(0)+'h '+minute.toString()+'m';
+    return totalTime;
+  }
 }
