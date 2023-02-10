@@ -7,6 +7,7 @@ import 'package:vatrin_movie_app/views/widgets/now_showing_widget.dart';
 
 import '../../data/constant.dart';
 import '../../providers/movie_provider.dart';
+import '../widgets/popular_movie_widget.dart';
 
 class HomeScreen extends StatelessWidget
 {
@@ -26,31 +27,10 @@ class HomeScreen extends StatelessWidget
             children: [
               const MovieNavigationBar(text: 'Vatrin Film', leadingIcon: 'assets/icons/Menu.svg', endIcon: 'assets/icons/Notif.svg',),
               SizedBox(height: 30),
-              Row(mainAxisAlignment: MainAxisAlignment.start,
+              Row(
                 children: [Text('Now Showing', style: titleStyle,),],
               ),
               SizedBox(height: 20),
-                 /* InkWell(
-                    onTap: () {},child: Column(
-                      children: [
-                        SizedBox(
-                          height: 190,
-                          width: 150,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                             "",
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 5),
-                        Text("test")
-                      ],
-                    ),
-                  ),*/
-
             provider.nowShowingMovies == null
                     ? const Center(
                         child: Text('No Movies Found'),
@@ -64,6 +44,19 @@ class HomeScreen extends StatelessWidget
                         return NowShowingWidget(movie:provider.nowShowingMovies![index]);
                       }),
                     ),
+                SizedBox(height: 20),
+                Row(
+                  children: [Text('Popular', style: titleStyle,),],
+                  ),
+             // SizedBox(height: 10),
+              provider.nowShowingMovies == null
+                  ? const Center(
+                    child: Text('No popular Movies Found'),
+              )
+                  : Expanded(child: Container(
+                  width:MediaQuery.of(context).size.width,
+                  child: MoviesWidget(movies: provider.popularMovies ))),
+
 
             ],
           ),
