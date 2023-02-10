@@ -15,7 +15,24 @@ class NowShowingWidget extends StatelessWidget
 
           return InkWell(
             onTap: () {
-
+              //Show details page
+              /*Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Description(
+                        name: nowShowingMovie[index]['title'],
+                        bannerurl:
+                        'https://image.tmdb.org/t/p/w500' +
+                            nowShowingMovie[index]['backdrop_path'],
+                        posterurl:
+                        'https://image.tmdb.org/t/p/w500' +
+                            nowShowingMovie[index]['poster_path'],
+                        description: nowShowingMovie[index]['overview'],
+                        vote: nowShowingMovie[index]['vote_average']
+                            .toString(),
+                        launch_on: nowShowingMovie[index]
+                        ['release_date'],
+                      )));*/
             },
             child: Container(
               width: 150,
@@ -39,9 +56,10 @@ class NowShowingWidget extends StatelessWidget
                       children: [
                         Expanded(
                           child: Text( movie.name != null
-                                  ? movie.name+"/10"
+                                  ? movie.name
                                   : 'Loading',style: subTitleStyle,),
                         ),
+
                       ],
                     ),
                   ),
@@ -56,7 +74,7 @@ class NowShowingWidget extends StatelessWidget
                           size: 14,
                         ),
                         Text(
-                          movie.vote,
+                          movie.vote+"/10",
                           style: subSubTitleStyle
                         ),
                       ],
